@@ -13,10 +13,9 @@ function CreateModal() {
     const handleCreate = async () => {
         try {
             const res = await postAPI('/Todo', { title, completed });
-            console.log(res);
             window.location.reload();
         } catch (error) {
-            console.error("Todo oluşturulurken hata:", error);
+            throw new Error("Todo oluşturulurken hata:", error);
         }
     };
     if (!isModalOpen) return null;

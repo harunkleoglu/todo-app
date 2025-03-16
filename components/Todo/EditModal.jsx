@@ -23,11 +23,10 @@ function EditModal() {
     const handleEdit = async () => {
         try {
             postAPI('/Update', { id: selectedTodo.id, title, completed }).then((res) => {
-                console.log(res);
             });
             window.location.reload();
         } catch (error) {
-            console.error("Todo güncellenirken hata:", error);
+            throw new Error("Todo güncellenirken hata:", error);
         }
     };
 
